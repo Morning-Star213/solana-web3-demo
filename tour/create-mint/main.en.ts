@@ -1,4 +1,9 @@
-import { Keypair, Transaction, SystemProgram, Connection } from "@solana/web3.js";
+import {
+  Keypair,
+  Transaction,
+  SystemProgram,
+  Connection,
+} from "@solana/web3.js";
 
 import {
   createInitializeMintInstruction,
@@ -8,18 +13,19 @@ import {
 } from "@solana/spl-token";
 
 import * as bs58 from "bs58";
-
 // connection
 const connection = new Connection("https://api.devnet.solana.com");
-
 // 5YNmS1R9nNSCDzb5a7mMJ1dwK9uHeAAF4CmPEwKgVWr8
 const feePayer = Keypair.fromSecretKey(
-  bs58.decode("588FU4PktJWfGfxtzpAAXywSNt74AvtroVzGfKkVN1LwRuvHwKGr851uH8czM5qm4iqLbs1kKoMKtMJG4ATR7Ld2")
+  bs58.decode(
+    "588FU4PktJWfGfxtzpAAXywSNt74AvtroVzGfKkVN1LwRuvHwKGr851uH8czM5qm4iqLbs1kKoMKtMJG4ATR7Ld2"
+  )
 );
-
 // G2FAbFQPFa5qKXCetoFZQEvF9BVvCKbvUZvodpVidnoY
 const alice = Keypair.fromSecretKey(
-  bs58.decode("4NMwxzmYj2uvHuq8xoqhY8RXg63KSVJM1DXkpbmkUY7YQWuoyQgFnnzn6yo3CMnqZasnNPNuAT2TLwQsCaKkUddp")
+  bs58.decode(
+    "4NMwxzmYj2uvHuq8xoqhY8RXg63KSVJM1DXkpbmkUY7YQWuoyQgFnnzn6yo3CMnqZasnNPNuAT2TLwQsCaKkUddp"
+  )
 );
 
 // create mint (create your own token)
@@ -51,5 +57,7 @@ const alice = Keypair.fromSecretKey(
     )
   );
 
-  console.log(`txhash: ${await connection.sendTransaction(tx, [feePayer, mint])}`);
+  console.log(
+    `txhash: ${await connection.sendTransaction(tx, [feePayer, mint])}`
+  );
 })();
