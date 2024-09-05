@@ -10,8 +10,6 @@ import {
 } from "@solana/web3.js";
 import { CONNECTION, FEE_PAYER } from "../../../helper/const";
 
-// use nonce
-
 // nonce account
 const nonceAccountPubkey = new PublicKey("2ZKe8GmRAqFRj3AvVSFBTLHNNrH1uB23hwjHV3CzJGmf");
 
