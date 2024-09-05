@@ -1,16 +1,16 @@
-# Durable Nonce
+# DurableNonce
 
-在solana發交易的時候，會在tx內包一塊最近的blockhash塞進去，之後一起簽名。而這個blockhash距離鏈上最新的區塊太遠的話，tx就會被拒絕。 (大概拿到之後兩分鐘就會過期) 這個機制使我們沒有辦法讓tx在本地放一陣子之後再送出。官方有提供一個解法叫做durable nonce。
+When Solana sends a transaction, it will include a recent blockhash in tx and then sign it together. If the blockhash is too far from the latest block on the chain, the tx will be rejected. (It will expire approximately two minutes after getting it.) This mechanism makes it impossible for us to keep the tx locally for a while and then send it out. The official solution is called durable nonce.
 
-## 機制
+## Mechanism
 
-這個durable nonce會需要你先創一個nonce account。nonce account在創建完後同時裡面也會存在一個nonce。我們只要讓tx符合下面條件就可以啟動nonce的機制
+This durable nonce will require you to create a nonce account first. After the nonce account is created, there will also be a nonce in it. We only need to make tx meet the following conditions to activate the nonce mechanism
 
-1. 把 nonce 放在 blockhash (就不用放最近一塊的blockhash了)
-2. tx的第一個instruction是advanced nonce的操作
+1. Put the nonce in the blockhash (there is no need to put the latest blockhash)
+2. The first instruction of tx is the operation of advanced nonce
 
-滿足上面兩個條件就可以啟動durable nonce的機制，下面會分成幾個步驟帶大家一步一步操作。
+If the above two conditions are met, the durable nonce mechanism can be started. The following will be divided into several steps to take you step by step.
 
-* [創建nonce account](../durable-nonce/create-nonce-account/main.ts)
-* [查詢nonce account的nonce](../durable-nonce/query-nonce/main.ts)
-* [使用nonce機制](../durable-nonce/use-nonce/main.ts)
+- [Create nonce account](../durable-nonce/create-nonce-account/main.ts)
+- [Query the nonce of nonce account](../durable-nonce/query-nonce/main.ts)
+- [Use nonce mechanism](../durable-nonce/use-nonce/main.ts)
