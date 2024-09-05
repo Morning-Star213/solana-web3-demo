@@ -1,6 +1,5 @@
 import { Connection, Keypair, Transaction, AddressLookupTableProgram } from "@solana/web3.js";
 import * as bs58 from "bs58";
-
 // connection
 const connection = new Connection("https://api.devnet.solana.com");
 

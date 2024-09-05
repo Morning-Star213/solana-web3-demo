@@ -1,6 +1,5 @@
 import { Connection } from "@solana/web3.js";
 
-// connection
 const connection = new Connection("https://api.devnet.solana.com");
 
 (async () => {
